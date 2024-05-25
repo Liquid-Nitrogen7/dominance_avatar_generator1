@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dominace Avatar Generator</title>
+</head>
+<body>
+    <input placeholder="Enter Dominace Creature Values" id="1">
+    <button onclick="update()">Generate</button>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        let d=[2,2,2,2,2,2,1,1,1,10]
+        let di=[d[0],d[1],d[2],d[3],d[4],d[5]]
+        let dis=[...di]
+        dis.sort()
+        function setup(){
+            createCanvas(500, 500)
+        }
+        function draw(){
+            background(100)
+            noStroke()
+            fill(255)
+            push()
+            translate(290, 220)
+            angleMode(DEGREES)
+            rotate(330+(d[6]*10))
+            triangle(110-290, 210-220, 110-290, 215-220, 110-290-(d[8]*10), 215-220)
+            triangle(110-290, 216-220, 110-290, 221-220, 110-290-(d[8]*10), 219-220)
+            triangle(110-290, 222-220, 110-290, 227-220, 110-290-(d[8]*10), 222-220)
+            fill(d[6]*22, 255-(d[7]*22), dis[5]*22)
+            ellipse(-90, 0, 200, 50)
+            pop()
+            push()
+            fill(255)
+            translate(210, 220)
+            angleMode(DEGREES)
+            rotate(30-(d[6]*10))
+            triangle(390-210, 210-220, 390-210, 215-220, 390-210+(d[8]*10), 215-220)
+            triangle(390-210, 216-220, 390-210, 221-220, 390-210+(d[8]*10), 219-220)
+            triangle(390-210, 222-220, 390-210, 227-220, 390-210+(d[8]*10), 222-220)
+            fill(d[6]*22, 255-(d[7]*22), dis[5]*22)
+            ellipse(90, 0, 200, 50)
+            pop()
+            fill(d[6]*22, 255-(d[7]*22), dis[5]*22)
+            ellipse(250, 250, 150, 200)
+            fill(d[6]*22-10, 255-(d[7]*22)-10, dis[5]*22-10)
+            ellipse(200, 335, 80, 50)
+            ellipse(300, 335, 80, 50)
+            ellipse(250, 150, 125)
+            fill(0)
+            ellipse(220, 130, 20)
+            ellipse(280, 130, 20)
+            fill(255)
+            ellipse(215, 125, 10)
+            ellipse(275, 125, 10)
+        }
+        function update(){
+            let x=$("#1").val().split(",")
+            console.log(x)
+            if(x.length==10){
+                d=[]
+                for(let i=0;i<x.length;i++){
+                    d.push(Number(x[i]))
+                }
+                di=[d[0],d[1],d[2],d[3],d[4],d[5]]
+                dis=[...di]
+                dis.sort()
+                console.log(dis)
+            }
+        }
+    </script>
+</body>
+</html>
